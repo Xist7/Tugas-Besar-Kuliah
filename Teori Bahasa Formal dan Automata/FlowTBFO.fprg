@@ -1,0 +1,169 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="FlowTBFO"/>
+        <attribute name="authors" value="Lenovo"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2025-11-24 02:56:31 AM"/>
+        <attribute name="created" value="TGVub3ZvO0xBUFRPUC1MQkwzN044QzsyMDI1LTExLTIzOzEwOjI3OjUxIFBNOzI5Mzc="/>
+        <attribute name="edited" value="TGVub3ZvO0xBUFRPUC1MQkwzN044QzsyMDI1LTExLTI0OzAyOjU2OjMxIEFNOzI7MzAzMw=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="eks, c" type="String" array="False" size=""/>
+            <declare name="i, kurung" type="Integer" array="False" size=""/>
+            <declare name="Oplast, valid" type="Boolean" array="False" size=""/>
+            <input variable="eks"/>
+            <assign variable="kurung" expression="0"/>
+            <assign variable="valid" expression="true"/>
+            <assign variable="i" expression="0"/>
+            <assign variable="Oplast" expression="false"/>
+            <while expression="i &lt; Len(eks) &amp;&amp; valid == true">
+                <assign variable="c" expression="Char(eks, i)"/>
+                <if expression="c == &quot; &quot;">
+                    <then>
+                        <assign variable="i" expression="i+1"/>
+                    </then>
+                    <else/>
+                </if>
+                <if expression="c == &quot;0&quot;||c==&quot;1&quot;||c == &quot;2&quot;||c==&quot;3&quot;||c == &quot;4&quot;||c==&quot;5&quot;||c == &quot;6&quot;||c==&quot;7&quot;||c == &quot;8&quot;||c==&quot;3&quot;||c == &quot;9&quot;">
+                    <then>
+                        <assign variable="Oplast" expression="false"/>
+                        <assign variable="i" expression="i+1"/>
+                    </then>
+                    <else/>
+                </if>
+                <if expression="c == &quot;+&quot;||c==&quot;-&quot;||c == &quot;*&quot;||c==&quot;/&quot;||c == &quot;^&quot;">
+                    <then>
+                        <if expression="Oplast == true">
+                            <then>
+                                <if expression="c == &quot;+&quot; || c == &quot;-&quot;">
+                                    <then>
+                                        <assign variable="Oplast" expression="true"/>
+                                        <assign variable="i" expression="i+1"/>
+                                    </then>
+                                    <else>
+                                        <assign variable="valid" expression="false"/>
+                                    </else>
+                                </if>
+                            </then>
+                            <else>
+                                <assign variable="Oplast" expression="true"/>
+                                <assign variable="i" expression="i+1"/>
+                            </else>
+                        </if>
+                    </then>
+                    <else/>
+                </if>
+                <if expression="c == &quot;(&quot;">
+                    <then>
+                        <assign variable="kurung" expression="kurung + 1"/>
+                        <assign variable="Oplast" expression="true"/>
+                        <assign variable="i" expression="i+1"/>
+                    </then>
+                    <else/>
+                </if>
+                <if expression="c == &quot;)&quot;">
+                    <then>
+                        <if expression="kurung == 0">
+                            <then>
+                                <assign variable="valid" expression="false"/>
+                            </then>
+                            <else>
+                                <assign variable="kurung" expression="kurung - 1"/>
+                                <assign variable="Oplast" expression="false"/>
+                                <assign variable="i" expression="i+1"/>
+                            </else>
+                        </if>
+                    </then>
+                    <else/>
+                </if>
+                <if expression="c == &quot;s&quot;">
+                    <then>
+                        <if expression="Char(eks, i+1) == &quot;i&quot; &amp;&amp; Char(eks, i+2) == &quot;n&quot;">
+                            <then>
+                                <assign variable="Oplast" expression="true"/>
+                                <assign variable="i" expression="i+3"/>
+                            </then>
+                            <else>
+                                <if expression="Char(eks, i+1) == &quot;q&quot; &amp;&amp; Char(eks, i+2) == &quot;r&quot; &amp;&amp; Char(eks, i+3) == &quot;t&quot;">
+                                    <then>
+                                        <assign variable="Oplast" expression="true"/>
+                                        <assign variable="i" expression="i+4"/>
+                                    </then>
+                                    <else>
+                                        <assign variable="valid" expression="false"/>
+                                    </else>
+                                </if>
+                            </else>
+                        </if>
+                    </then>
+                    <else/>
+                </if>
+                <if expression="c == &quot;c&quot;">
+                    <then>
+                        <if expression="Char(eks, i+1) == &quot;o&quot; &amp;&amp; Char(eks, i+2) == &quot;s&quot;">
+                            <then>
+                                <assign variable="Oplast" expression="true"/>
+                                <assign variable="i" expression="i+3"/>
+                            </then>
+                            <else>
+                                <assign variable="valid" expression="false"/>
+                            </else>
+                        </if>
+                    </then>
+                    <else/>
+                </if>
+                <if expression="c == &quot;t&quot;">
+                    <then>
+                        <if expression="Char(eks, i+1) == &quot;a&quot; &amp;&amp; Char(eks, i+2) == &quot;n&quot;">
+                            <then>
+                                <assign variable="Oplast" expression="true"/>
+                                <assign variable="i" expression="i+3"/>
+                            </then>
+                            <else>
+                                <assign variable="valid" expression="false"/>
+                            </else>
+                        </if>
+                    </then>
+                    <else/>
+                </if>
+                <if expression="c == &quot;l&quot;">
+                    <then>
+                        <if expression="Char(eks, i+1) == &quot;o&quot; &amp;&amp; Char(eks, i+2) == &quot;g&quot;">
+                            <then>
+                                <assign variable="Oplast" expression="true"/>
+                                <assign variable="i" expression="i+3"/>
+                            </then>
+                            <else>
+                                <assign variable="valid" expression="false"/>
+                            </else>
+                        </if>
+                    </then>
+                    <else/>
+                </if>
+            </while>
+            <if expression="kurung != 0">
+                <then>
+                    <assign variable="valid" expression="false"/>
+                </then>
+                <else/>
+            </if>
+            <if expression="Oplast == true">
+                <then>
+                    <assign variable="valid" expression="false"/>
+                </then>
+                <else/>
+            </if>
+            <if expression="valid == true">
+                <then>
+                    <output expression="&quot;Ekspresi Valid&quot;" newline="True"/>
+                </then>
+                <else>
+                    <output expression="&quot;Ekspresi Tidak Valid&quot;" newline="True"/>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>
